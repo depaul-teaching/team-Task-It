@@ -1,0 +1,16 @@
+1. Name one change you made to the stater Dockerfile and explain
+   what problem it fixed(caching, size, or security).
+	- I noticed that there were two copy lines, one of them
+	  being before the run line. Since every rebuild 
+	  redownloads it's dependencies, I replaced it with
+	  the appropriate line to prevent a caching error from
+	  the docker image.
+2. What is the size of your final image (from docker images), and
+   which single layer contributed the most to it?
+	-The size of the final image is 19 layers, the biggest one 
+	 being from the first layer (debian base). 
+3. Why does copying requirements.txt before the rest of the source
+   make rebuilds faster after a code change?
+	-Order matters when the dockerfile is run, and if we copy
+	it before the source, then the file will still remain intact
+	and not redownload and reinstall each time.
