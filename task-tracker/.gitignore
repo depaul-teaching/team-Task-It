@@ -1,0 +1,17 @@
+# Secrets and local environment files
+.env
+*.pem
+*.key
+kubeconfig*
+*kubeconfig*.yaml
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+.vscode/

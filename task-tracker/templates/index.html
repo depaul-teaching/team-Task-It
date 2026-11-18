@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>Created by {{ team }}</p>
+
+    <h2>My Tasks</h2>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task"
+               placeholder="Enter a task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ task.name }}
+
+            {% if task.completed %}
+                - Completed
+            {% else %}
+                <form action="/complete/{{ task.id }}"
+                      method="POST"
+                      style="display:inline;">
+                    <button type="submit">
+                        Mark Complete
+                    </button>
+                </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
