@@ -1,8 +1,9 @@
-# Personal Task Tracker
+# Personal Task Tracker (Task-It)
 
-A simple containerized task tracker application built and operated with Docker, GitHub Actions, and Kubernetes.
+A simple containerized task tracker web application built with Python (Flask) and Redis, automated with GitHub Actions, and operated on Kubernetes.
 
 ## Team Roles
+
 * **App / Content:** 
 * **Container / Integration:** Frank DeRango
 * **CI/CD:** Ivette Garia
@@ -23,11 +24,40 @@ A simple containerized task tracker application built and operated with Docker, 
 - kubectl
 - kind
 
-## Quick Start (Local)
-```bash
-# Run locally with Docker Compose
-docker compose up --build
-```
+
+
+* **App / Content:** Ivette Garcia
+* **Container / Integration:** Frank DeRango
+* **CI/CD:** Franco Rosales
+* **Kubernetes / Operations:** Franco Rosales
+
+
+
+## Prerequisites
+
+Install the following tools before running the project from a fresh clone:
+
+* [Git](https://git-scm.com/)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Engine and `docker compose`)
+* [Python 3.12+](https://www.python.org/) (optional, for running locally without Docker)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/) and [kind](https://kind.sigs.k8s.io/) (for Kubernetes deployment)
+
+
+
+## Environment Variables
+
+| Variable | Default | Description |
+| :--- | :--- | :--- |
+| `APP_TITLE` | `Personal Task Tracker` | Heading displayed at the top of the home page |
+| `TEAM_NAME` | `Team Task-It` | Team name displayed below the app title |
+| `PORT` | `5000` | Port the Flask web server listens on |
+| `REDIS_HOST` | *(unset / in-memory fallback)* | Hostname of the Redis service (set to `redis` in Docker Compose) |
+| `REDIS_PORT` | `6379` | Port used to connect to Redis |
+
+
+
+## 1. Run Locally (Python)
+
 
 ## Running with Docker
 Build the Docker image:
@@ -89,3 +119,12 @@ The workflow builds the Docker image for pull requests but only publishes it to 
 kind create cluster --name task-tracker
 kubectl apply -f k8s/
 ```
+
+```bash
+git clone https://github.com/depaul-teaching/team-Task-It.git
+cd team-Task-It
+python -m venv .venv
+source .venv/bin/activate   # On Windows PowerShell: .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python app.py
+
