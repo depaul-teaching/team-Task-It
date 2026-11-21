@@ -8,12 +8,12 @@ A simple containerized task tracker application built and operated with Docker, 
 * **CI/CD:** Ivette Garia
 * **Kubernetes / Operations:** Frank Rosales-Franco
 
-##Application Features
+## Application Features
 - View existing tasks
 - Add new tasks
 - Mark tasks as completed
 
-##Prerequisites
+## Prerequisites
 # Before running project, make sure to install:
 - Git 
 - Python 3.12
